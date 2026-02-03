@@ -100,15 +100,15 @@ ggplot() +
 ```
 
 The unit square can be defined by two basis vectors
-$$\mathbf{v}_1=\begin{bmatrix} 1 \\ 0 \end{bmatrix} ~~~ \textrm{and} ~~~ \mathbf{v}_2=\begin{bmatrix} 1 \\ 0 \end{bmatrix}.$$
-From these vectors, we can compute the corner verticies.
+$$\mathbf{v}_1=\begin{bmatrix} 1 \\ 0 \end{bmatrix} ~~~ \textrm{and} ~~~ \mathbf{v}_2=\begin{bmatrix} 0 \\ 1 \end{bmatrix}.$$
+From these vectors, we can compute the corner vertices.
 \begin{align*}
   p_0 & = (0,0) = (x_0, y_0) \tag{The origin}\\
-  p_1 & = v_1 = (x_1, y_1)   \tag{The first basis vector}\\
-  p_2 & = v_1 + v_2 = (x_2, y_2) \tag{The sum of basis vectors}\\
-  p_3 & = v_1 = (x_3, y_3)  \tag{The second basis vector}\\
+  p_1 & = v_1 = (x_1, y_1) = (1,0)  \tag{The first basis vector}\\
+  p_2 & = v_1 + v_2 = (x_2, y_2)= (1,1) \tag{The sum of basis vectors}\\
+  p_3 & = v_2 = (x_3, y_3) =(0,1) \tag{The second basis vector}\\
 \end{align*}
-Note that the segments that form the boundary go from $p_0$ to $p_1$ to $p_2$ to $p_3$.
+Note that the segments that form the boundary go from $p_0$ to $p_1$ to $p_2$ to $p_3$ and back to $p_0$.
 
 Consider the matrix $M$ to be the matrix we get from binding the two basis vectors at the column,
 $$\mathbf{M} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}.$$
@@ -157,6 +157,31 @@ Compute the points $p_0$, $p_1$, $p_2$, and $p_3$.
 
 ## Part e
 Copy and paste the code for the unit square. Edit the code to draw the segments that form the boundary based on the points in Part d.
+
+**Solution**
+```{r}
+#| label: fig-TSquare
+#| fig-cap: "The T Shape."
+#| fig-width: 3
+#| fig-height: 3
+#| scale: "80%"
+#| fig-align: "center"
+#| size: "scriptsize"
+ggplot() +
+  geom_segment(aes(x = 0, xend = 1,
+                   y=0, yend = 5))+
+  geom_segment(aes(x = -6, xend = 1,
+                   y=14, yend = 5))+
+  geom_segment(aes(x = -7, xend = -6,
+                   y=9, yend = 14))+
+  geom_segment(aes(x = -7, xend = 0,
+                   y=9, yend = 0)) +
+  theme_bw() + 
+  xlim(-10, 5)+
+  ylim(0, 15)+
+  labs(x = "x", 
+       y = "y")
+```
 
 ## Part f
 Interestingly, the determinant of $\mathbf{A}$ gives us the area of the shape plotted in Part e. Find the determinant of $\mathbf{A}$.
