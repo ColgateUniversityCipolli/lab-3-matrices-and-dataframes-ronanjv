@@ -438,21 +438,23 @@ Create a data frame `ladder` with the following data. Note your data frame shoul
 
 | x    | y    | group| x    | y    | group|
 |:-----|:-----|:-----|:-----|:-----|:-----|
-| 0    | 0    |    1 | 1    | 8    |    1 |
-| 0    | 20   |    1 | 0    | 10   |    1 |
-| 1    | 0    |    2 | 1    | 10   |    2 |
-| 1    | 20   |    2 | 0    | 12   |    2 |
-| 0    | 2    |    3 | 1    | 12   |    3 |
-| 1    | 2    |    3 | 0    | 14   |    3 |
-| 0    | 4    |    4 | 1    | 14   |    4 |
-| 1    | 4    |    4 | 0    | 16   |    4 |
-| 0    | 6    |    5 | 1    | 16   |    5 |
-| 1    | 6    |    5 | 0    | 18   |    5 |
-| 0    | 8    |    5 | 1    | 18   |    5 |
+| 0    | 0    |    1 | 1    | 8    |    6 |
+| 0    | 20   |    1 | 0    | 10   |    7 |
+| 1    | 0    |    2 | 1    | 10   |    7 |
+| 1    | 20   |    2 | 0    | 12   |    8 |
+| 0    | 2    |    3 | 1    | 12   |    8 |
+| 1    | 2    |    3 | 0    | 14   |    9 |
+| 0    | 4    |    4 | 1    | 14   |    9 |
+| 1    | 4    |    4 | 0    | 16   |   10 |
+| 0    | 6    |    5 | 1    | 16   |   10 |
+| 1    | 6    |    5 | 0    | 18   |   11 |
+| 0    | 8    |    6 | 1    | 18   |   11 |
 
 **Solution**
 ```{r}
 ladder = data.frame( x = c(0,0,1,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1), y = c(0,20,0,20,2,2,4,4,6,6,8,8,10,10,12,12,14,14,16,16,18,18), group = c(1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11))
+
+
 ```
 ## Part b
 Remove `#|eval: false` in the code below. The result should look like a ladder and a very rectangular house if part a is correct.
@@ -488,8 +490,17 @@ Recall,
 $$\mathbf{M}_h = \begin{bmatrix} 1 & 0 \\ k & 1 \end{bmatrix}$$
 and use $k=0.5.$
 
+**Solution**: This is Matrix T after multiplying AM.
+```{r}
+A = as.matrix(ladder[ , c(1,2)])
+M = matrix(data=c(1, 0, 0.5, 1), nrow = 2, ncol = 2, byrow = TRUE)
+(T = A %*% M)
+```
+
 ## Part d
 Create a data frame `leaning.ladder` with the `x` and `y` equal to the first and second column of $\mathbf{T}$, respectively, and the same values of `group` from `ladder`. 
+
+**Solution**
 
 ## Part e
 Remove `eval: false` in the code below. The result should look like a ladder and a very rectangular house if part a is correct. The new leaning ladder should look like it is leaning on the house.
