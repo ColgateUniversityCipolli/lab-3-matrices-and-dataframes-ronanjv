@@ -509,10 +509,9 @@ Create a data frame `leaning.ladder` with the `x` and `y` equal to the first and
 Remove `eval: false` in the code below. The result should look like a ladder and a very rectangular house if part a is correct. The new leaning ladder should look like it is leaning on the house.
 
 ```{r}
-#| eval: false
 #| label: fig-ladder2
 #| fig-cap: "A ladder and a leaning ladder."
-#| fig-width: 3
+#| fig-width: 6
 #| fig-height: 3
 #| scale: "80%"
 #| fig-align: "center"
