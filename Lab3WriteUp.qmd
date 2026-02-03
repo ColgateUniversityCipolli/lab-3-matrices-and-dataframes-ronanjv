@@ -138,8 +138,22 @@ M = matrix(data=c(1, 0, 0, 1), nrow = 2, ncol = 2, byrow = TRUE)
 ## Part c
 Create `basis.vector.1` (first column of `T`) and `basis.vector.2` (second column of `T`) in `R`.
 
+**Solution**
+```{r}
+(basis.vector.1 = T[,1])
+(basis.vector.2 = T[,2])
+```
+
 ## Part d
 Compute the points $p_0$, $p_1$, $p_2$, and $p_3$.
+
+**Solution**
+```{r}
+(p0 = c(0,0))
+(p1 = basis.vector.1)
+(p2 = basis.vector.1 + basis.vector.2)
+(p3 = basis.vector.2)
+```
 
 ## Part e
 Copy and paste the code for the unit square. Edit the code to draw the segments that form the boundary based on the points in Part d.
