@@ -501,6 +501,9 @@ M = matrix(data=c(1, 0, 0.5, 1), nrow = 2, ncol = 2, byrow = TRUE)
 Create a data frame `leaning.ladder` with the `x` and `y` equal to the first and second column of $\mathbf{T}$, respectively, and the same values of `group` from `ladder`. 
 
 **Solution**
+```{r}
+(leaning.ladder = data.frame(x = T[,1], y = T[,2], group = ladder[,3]))
+```
 
 ## Part e
 Remove `eval: false` in the code below. The result should look like a ladder and a very rectangular house if part a is correct. The new leaning ladder should look like it is leaning on the house.
